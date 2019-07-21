@@ -23,12 +23,14 @@ void CDino::move(int y, int speed)
 		Sleep(speed);
 		gotoXY(i, j);
 		destroy(i,j);
-		i += 3;
+		i += 2;
 	}
 }
 
 void CDino::tell()
 {
+	PlaySound("dino.wav", NULL, SND_ASYNC);
+	
 }
 
 void CDino::draw(int x, int y)

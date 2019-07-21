@@ -1,23 +1,18 @@
 #include "CBird.h"
 
-
-
 CBird::CBird()
 {
 }
-
 
 CBird::~CBird()
 {
 }
 
-void CBird::move( int y, int speed)
+void CBird::move(int y, int speed)
 {
-	
 	int i = 0, j = y;
 	gotoXY(i, j);
-
-	while (i<120)
+	while (i < 120)
 	{
 		draw();
 		Sleep(speed);
@@ -29,7 +24,10 @@ void CBird::move( int y, int speed)
 
 void CBird::tell()
 {
+	PlaySound("bird.wav", NULL, SND_ASYNC);
 }
+
+
 
 void CBird::draw()
 {
@@ -39,6 +37,4 @@ void CBird::draw()
 void CBird::destroy()
 {
 	cout << blank;
-
 }
-

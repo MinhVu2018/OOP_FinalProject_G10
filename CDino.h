@@ -13,5 +13,7 @@ public:
 	void tell();
 	void draw(int x, int y);
 	void destroy(int x, int y);
+
+
 };
 

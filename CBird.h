@@ -12,5 +12,6 @@ public:
 	void tell();
 	void draw();
 	void destroy();
+
 };
 
