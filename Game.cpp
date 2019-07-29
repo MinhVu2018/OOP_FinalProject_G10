@@ -1,4 +1,5 @@
 #include"Game.h"
+#include<string>
 
 Game::Game()
 {
@@ -106,8 +107,17 @@ void Game::startGame()
 }
 
 void Game::saveGame() {
-	//t c b d p
-	ofstream fout("gamesave.bin", ios::binary);
+	string name, dir;
+	cin.ignore();
+	cout << "File name: ";
+	getline(cin, name);
+	cout << "Directory: ";
+	getline(cin, dir);
+	string path;
+	path.append(dir);
+	path.append("\\");
+	path.append(name);
+	ofstream fout(path, ios::binary);
 	int a, f;
 	t->savePos(a, f);
 	//fout << a << " " << f << endl;
@@ -138,7 +148,11 @@ void Game::saveGame() {
 }
 
 void Game::loadGame() {
-	ifstream fin("gamesave.bin", ios::binary);
+	cin.ignore();
+	string path;
+	cout << "Path: ";
+	getline(cin, path);
+	ifstream fin(path, ios::binary);
 	if (!fin.is_open())
 		cout << "Cannot load data." << endl;
 	int a, f;
@@ -177,19 +191,19 @@ void Game::UpdatePosPeople(char move)
 {
 	p.Draw();
 	int v = move;
-	if (v == 119)
+	if (v == 72)
 	{
 		p.Up();
 	}
-	else if (v == 115)
+	else if (v == 80)
 	{
 		p.Down();
 	}
-	else if (v == 97)
+	else if (v == 75)
 	{
 		p.Left();
 	}
-	else if (v == 100)
+	else if (v == 77)
 	{
 		p.Right();
 	}
