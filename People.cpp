@@ -87,16 +87,6 @@ bool People::isImpact(Car* c)
 	return false;
 }
 
-bool People::isImpact(Vehicle* v)
-{
-	return v->Impact(p);
-}
-
-bool People::isImpact(Animal* a)
-{
-	return a->Impact(p);
-}
-
 bool People::isFinish()
 {
 	if (p.y == 1)
