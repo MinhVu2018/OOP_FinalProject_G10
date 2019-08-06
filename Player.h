@@ -1,5 +1,6 @@
 #ifndef _Player_h_
 #define _Player_h_
+
 #include "Header.h"
 #include "Truck.h"
 #include "Car.h"
@@ -13,29 +14,41 @@ public:
 	void Draw();
 	void Destroy();
 
-	//Move
+	//Movement
 	void Up();
 	void Down();
-	void Left();
 	void Right();
+	void Left();
 
 	//Impact
-	bool isImpact(Car *c);
-	bool isImpact(Truck *t);
-	bool isImpact(Bird *b);
+	bool isImpact(Car* c);
+
+	bool isImpact(Truck* t);
+
+	bool isImpact(Bird* b);
+
 	bool isImpact(Dino* d);
 
+	bool isImpact(Vehicle* v);
+
+	bool isImpact(Animal* a);
+
+	bool isImpactWall();
 	//Status
 	bool isFinish();
-	bool isDead();
+	int& getLives();
 
-	//Save
+	// Again
+	void Again();
+
+	//save-load
 	void savePos(int& a, int& b);
+
 	void loadPos(int a, int b);
 
 private:
 	Point p;
-	bool Alive; // Alive or Dead
+	int lives;
 };
 
-#endif _Player_h_
+#endif

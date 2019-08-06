@@ -6,37 +6,27 @@
 class Barrier
 {
 public:
-	virtual void Draw()
-	{
-		gotoXY(p.x, p.y);
-	}
+	Barrier();
 
-	virtual void Destroy()
-	{
-		gotoXY(p.x++, p.y);
-	}
+	virtual void Draw() = 0;
 
-	virtual void Move(int, int)
-	{
-		gotoXY(p.x, p.y);
-		Destroy();
-		if (p.x == 49-4)
-			p.x = 1;
-		//Sleep(500 + speed*1000); //speed
-		gotoXY(++p.x, p.y);
-		Draw();
-	}
-	void savePos(int &a, int &b) {
-		a = p.x;
-		b = p.y;
-	}
-	void loadPos(int a , int b) {
-		p.x = a;
-		p.y = b;
-	}
+	virtual void Destroy() = 0;
+
+	virtual void Move(int, int);	// left-right, stop-move
+
+	int getSpeed();
+
+	virtual Point* inside() = 0;
+
+	virtual bool Impact(const Point&) = 0;
+
+	void savePos(int& , int& );
+	
+	void loadPos(int, int);
+
 protected:
 	Point p;
-	int speed = 0;
+	int speed;
 };
 
-#endif Barrier_h_
+#endif
