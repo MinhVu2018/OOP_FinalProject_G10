@@ -29,9 +29,7 @@ public:
 
 	bool isImpact(Dino* d);
 
-	bool isImpact(Vehicle* v);
-
-	bool isImpact(Animal* a);
+	bool isImpact(Barrier** b);
 
 	bool isImpactWall();
 	//Status
